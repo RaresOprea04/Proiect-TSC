@@ -54,20 +54,20 @@ Sistemul este extrem de eficient, asigurând o durată de viață a bateriei de 
 ## 4. Maparea Pinilor nRF52840 (Pinout)
 
 
-
 | Pin nRF52840 | Nume Semnal | Destinație | Rol / Explicație |
 | :--- | :--- | :--- | :--- |
-| `P0.xx` | I2C_SDA | BMA421, BQ25180, MAX17048, DRV2605 | Linia de date pentru magistrala I2C comună. |
-| `P0.xx` | I2C_SCL | BMA421, BQ25180, MAX17048, DRV2605 | Linia de clock pentru magistrala I2C comună. |
-| `P0.xx` | SPI_MOSI | E-Paper Connector | Trimite comenzi și date de imagine către display. |
-| `P0.xx` | SPI_SCK | E-Paper Connector | Semnalul de clock pentru interfața SPI a display-ului. |
-| `P0.xx` | EPD_CS | E-Paper Connector | Chip Select pentru display. |
-| `P0.xx` | EPD_DC | E-Paper Connector | Data/Command - indică dacă payload-ul e comandă sau pixel. |
-| `P0.xx` | EPD_BUSY | E-Paper Connector | Citește starea de busy a display-ului în timpul refresh-ului. |
-| `P0.xx` | IMU_INT1 | BMA421 | Wake-up interrupt (ex: step counter, wrist tilt). |
-| `P0.xx` | SW_UP | Buton Sus | Input navigație (activ low). |
-| `P0.xx` | SW_ENT | Buton Enter | Input navigație (activ low). |
-| `P0.xx` | SW_DN | Buton Jos | Input navigație (activ low). |
+| `P0.06` | I2C_SDA | BMA421, BQ25180, MAX17048, DRV2605 | Linia de date pentru magistrala I2C comună. |
+| `P0.07` | I2C_SCL | BMA421, BQ25180, MAX17048, DRV2605 | Linia de clock pentru magistrala I2C comună. |
+| `P0.03` | SPI_MOSI | E-Paper Connector | Trimite comenzi și date de imagine către display. |
+| `P0.02` | SPI_SCK | E-Paper Connector | Semnalul de clock pentru interfața SPI a display-ului. |
+| `P0.05` | EPD_CS | E-Paper Connector | Chip Select (active low) pentru display-ul E-paper. |
+| `P0.15` | EPD_DC | E-Paper Connector | Data/Command - indică dacă payload-ul trimis prin SPI este o comandă sau date de pixel. |
+| `P0.17` | EPD_BUSY | E-Paper Connector | Citește starea de busy a display-ului pentru a ști când s-a terminat refresh-ul. |
+| `P0.16` | EPD_RST | E-Paper Connector | Pinul de hardware reset pentru ecranul E-paper. |
+| `P0.08` | IMU_INT1 | BMA421 | Wake-up interrupt (ex: trezirea sistemului la ridicarea mâinii). |
+| `P1.04` | SW_UP | Buton Sus | Input navigație (activ low, folosind pull-up intern). |
+| `P1.05` | SW_ENT | Buton Enter | Input navigație (activ low, folosind pull-up intern). |
+| `P1.06` | SW_DN | Buton Jos | Input navigație (activ low, folosind pull-up intern). |
 
 
 ---
