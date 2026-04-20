@@ -1,12 +1,14 @@
 # InkTime - Open Source Smartwatch ⌚
 
-InkTime este un start-up care își propune să creeze un smartwatch accesibil și complet open-source. Acest repository conține fișierele din etapa de Engineering Validation Test (EVT), inclusiv design-ul hardware (schematic + PCB 2D/3D în Fusion 360), fișierele de fabricație și documentația aferentă.
+![InkTime Smartwatch](Images/SmartWatch_Photo-FULL.png)
+
+InkTime este un start-up care își propune să creeze un smartwatch accesibil și complet open-source. Acest repository conține fișierele FINALE, inclusiv design-ul hardware (schematic + PCB 2D/3D în Fusion 360), fișierele de fabricație și documentația aferentă, cât și ceas-ul în forma sa finală, asamblat.
 
 ## 1. Diagrama Bloc a Sistemului
 
 Diagrama de mai jos ilustrează arhitectura hardware a ceasului InkTime, având în centru procesorul nRF52840, înconjurat de modulele de power management, senzori și interfața cu utilizatorul.
 
-![Diagrama Bloc](Images/Poza1.png) 
+![Diagrama Bloc](Images/PCB3D.jpg) 
 
 
 ---
@@ -53,7 +55,6 @@ Sistemul este extrem de eficient, asigurând o durată de viață a bateriei de 
 
 ## 4. Maparea Pinilor nRF52840 (Pinout)
 
-
 | Pin nRF52840 | Nume Semnal | Destinație | Rol / Explicație |
 | :--- | :--- | :--- | :--- |
 | `P0.06` | I2C_SDA | BMA421, BQ25180, MAX17048, DRV2605 | Linia de date pentru magistrala I2C comună. |
@@ -75,10 +76,17 @@ Sistemul este extrem de eficient, asigurând o durată de viață a bateriei de 
 ## 5. Design Log & Constrângeri pentru Review
 
 ### Imagini PCB și Asamblare 3D
-*Aici poți vedea design-ul plăcii de circuit și cum se integrează în carcasa printată.*
+*Aici puteți vedea design-ul plăcii de circuit și integrarea acesteia în carcasa printată.*
 
-![PCB Top View](Images/Poza2.png)
-![PCB Bottom View](Images/Poza3.png)
+**Vedere PCB (Top & Bottom):**
+![PCB View 1](Images/Poza2_PCB3D.jpg)
+![PCB View 2](Images/Poza3.png)
+
+**Integrare în Carcasă (Asamblare internă):**
+![Asamblare 1](Images/SmartWatch_Photo1.png)
+![Asamblare 2](Images/SmartWatch_Photo2.png)
+![Asamblare 3](Images/SmartWatch_Photo1.png)
+
 
 ### Jurnal de decizii (Design Log)
 În timpul procesului de proiectare am respectat următoarele constrângeri și decizii de good-practice:
@@ -88,4 +96,3 @@ Sistemul este extrem de eficient, asigurând o durată de viață a bateriei de 
 4. **Acceptare Erori DRC:** Erorile de clearance și dimension rezultate din depășirea marginii plăcii de către componentele mecanice (mufa USB-C și butoanele fizice) au fost acceptate asumat, deoarece amplasarea lor este impusă de cotele carcasei exterioare.
 
 ---
-*Proiect realizat pentru etapa de EVT - Aprilie 2026.*
