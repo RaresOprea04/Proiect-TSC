@@ -10,7 +10,43 @@ Diagrama de mai jos ilustrează arhitectura hardware a ceasului InkTime, având 
 
 ![Diagrama Bloc](Images/PCB3D.jpg) 
 
+flowchart LR
+    %% Stiluri
+    classDef power fill:#f9d0c4,stroke:#333,stroke-width:2px;
+    classDef mcu fill:#d4e6f1,stroke:#333,stroke-width:2px;
+    classDef peri fill:#d5f5e3,stroke:#333,stroke-width:2px;
+    %% Power Block
+    subgraph Power Management
+        USB[Conector USB-C]:::power --&gt;|VBUS 5V| BQ[BQ25180\nCharger Li-Po]:::power
+        BAT[(Baterie Li-Po)]:::power &lt;--&gt;|VBAT| BQ
+        BQ --&gt;|VSYS| REG[RT6160\nRegulator 3.3V]:::power
+    end
 
+    %% MCU Block
+    MCU{nRF52840 SoC\nMCU + Antenă BLE}:::mcu
+
+    %% Peripherals
+    subgraph Senzori &amp; UI
+        ACC[BMA421\nAccelerometru]:::peri
+        BTN[Butoane Tactile]:::peri
+    end
+
+    subgraph Output
+        EPD[Ecran E-Paper]:::peri
+    end
+
+    Debug[Interfață SWD\nProgramare]:::peri
+
+    %% Power Connections (Linii groase)
+    REG == 3.3V === MCU
+    REG == 3.3V === ACC
+    REG == 3.3V === EPD
+
+    %% Data Connections (Linii normale)
+    MCU &lt;--&gt;|I2C| ACC
+    MCU --&gt;|SPI| EPD
+    BTN --&gt;|GPIO| MCU
+    MCU &lt;--&gt;|SWDIO / SWCLK| Debug
 ---
 
 ## 2. Bill of Materials (BOM)
